@@ -1,0 +1,8 @@
+/bin/
+payload.txt
+*.exe
+*.out
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.vscode/
