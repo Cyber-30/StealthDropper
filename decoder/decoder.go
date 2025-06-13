@@ -1,4 +1,4 @@
-package main
+package decoder
 
 func XOR(data []byte, key byte) []byte {
 	result := make([]byte, len(data))
