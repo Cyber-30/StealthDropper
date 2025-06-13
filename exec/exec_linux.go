@@ -1,15 +1,16 @@
 //go:build linux
 
-package main
+package exec
 
-import "os/exec"
-import "log"
+import (
+	"os/exec"
+	"log"
+)
 
-func executepayload(decoded []byte) {
-	string_payload := string(decoded)
-	cmd := exec.Command("bash", "-c", string_payload)
+func ExecutePayload(decoded []byte) {
+	stringPayload := string(decoded)
+	cmd := exec.Command("bash", "-c", stringPayload)
 	err := cmd.Run()
-
 	if err != nil {
 		log.Fatal(err)
 	}
