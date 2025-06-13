@@ -1,12 +1,7 @@
-#!/bin/bash
+echo "[*] Building StealthDropper for all OS targets..."
 
-echo "[*] Building for Windows..."
-GOOS=windows GOARCH=amd64 go build -o bin/dropper_windows.exe main.go
+GOOS=windows GOARCH=amd64 go build -o ../bin/stealthdropper_windows.exe ./cmd/stealthdropper
+GOOS=linux   GOARCH=amd64 go build -o ../bin/stealthdropper_linux ./cmd/stealthdropper
+GOOS=darwin  GOARCH=amd64 go build -o ../bin/stealthdropper_macos ./cmd/stealthdropper
 
-echo "[*] Building for Linux..."
-GOOS=linux GOARCH=amd64 go build -o bin/dropper_linux main.go
-
-echo "[*] Building for macOS..."
-GOOS=darwin GOARCH=amd64 go build -o bin/dropper_mac main.go
-
-echo "[+] Builds completed. Check the 'bin/' directory."
+echo "[+] Binaries built successfully in ./bin"
